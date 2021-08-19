@@ -15,12 +15,45 @@ router.post('/locations',async function(req,res){
     var requestOptions = {
       method: 'GET',
     };
-    
-      fetch(`https://api.geoapify.com/v2/places?categories=catering.restaurant&filter=circle:${req.body.startingLatitude},${req.body.startingLongitude},5000&limit=20&apiKey=${key.key}`, requestOptions)
+       var arr=["accommodation.hotel","commercial.shopping_mall","catering.restaurant","entertainment.cinema","tourism.attraction.fountain"];
+       var string="";
+       for(i of arr)
+       {
+           string+=i;
+           
+           string+=","
+       }
+       string = string.substring(0, string.length - 1);
+
+   console.log(string);
+      fetch(`https://api.geoapify.com/v2/places?categories=${string}&filter=circle:${req.body.startingLatitude},${req.body.startingLongitude},5000&limit=5&apiKey=${key.key}`, requestOptions)
       .then(response => response.json())
       .then(
             function(result) {
+                var finalResult={};
+                finalResult.locations=[];
+                for(i of result.features)
+                {   
+                    var originalLocation=i.properties;
+                    var currentLocation={
+                        //type:originalLocation.categories[categories.size-1],
+                        name:originalLocation.name,
+                        street:originalLocation.street,
+                        city:originalLocation.city,
+                        county:originalLocation.county,
+                        state:originalLocation.state,
+                        country:originalLocation.country,
+                        longitude:originalLocation.lon,
+                        latitude:originalLocation.lat,
+
+
+                    };
+                    finalResult.locations.push(currentLocation);
+                }
+
+
                 
+
                 res.send(result);
     
     })
