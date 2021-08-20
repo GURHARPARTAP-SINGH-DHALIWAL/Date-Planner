@@ -7,10 +7,11 @@ app.use(cors());
 
 var fetch = require('node-fetch');
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '')))
 app.use(express.urlencoded());
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + 'index.html'))
+    res.sendFile(path.join(__dirname + '/index.html'));
   })
 app.use('/',require('./routes'));
 
