@@ -40,7 +40,7 @@ router.post('/locations',async function(req,res){
                 {   
                     var originalLocation=i.properties;
                     var currentLocation={
-                        //type:originalLocation.categories[categories.size-1],
+                        type:originalLocation.categories[originalLocation.categories.length-1],
                         name:originalLocation.name,
                         street:originalLocation.street,
                         city:originalLocation.city,
@@ -49,6 +49,7 @@ router.post('/locations',async function(req,res){
                         country:originalLocation.country,
                         longitude:originalLocation.lon,
                         latitude:originalLocation.lat,
+                        currency:'USD'
 
 
                     };
