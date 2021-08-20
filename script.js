@@ -17,7 +17,7 @@ form.addEventListener('submit',async function(event){
     console.log("here");
     const form=event.currentTarget;
     
-    const url="http://localhost:8000/api/locations";
+    const url="https://oxytocin-api.herokuapp.com/api/locations";
     const formData=new FormData(form);
     const plainFormData = Object.fromEntries(formData.entries());
     console.log(plainFormData);
