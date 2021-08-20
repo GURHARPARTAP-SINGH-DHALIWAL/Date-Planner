@@ -26,12 +26,16 @@ router.post('/locations',async function(req,res){
        string = string.substring(0, string.length - 1);
 
    console.log(string);
-      fetch(`https://api.geoapify.com/v2/places?categories=${string}&filter=circle:${req.body.startingLatitude},${req.body.startingLongitude},5000&limit=5&apiKey=${key.key}`, requestOptions)
+   var lat=parseFloat(req.body.startingLatitude);
+   var lon=parseFloat(req.body.startingLongitude);
+   console.log(lat,lon);
+      fetch(`https://api.geoapify.com/v2/places?categories=${string}&filter=circle:${lat},${lon},5000&limit=5&apiKey=${key.key}`, requestOptions)
       .then(response => response.json())
       .then(
             function(result) {
                 var finalResult={};
                 finalResult.locations=[];
+                console.log(result);
                 for(i of result.features)
                 {   
                     var originalLocation=i.properties;
@@ -53,8 +57,8 @@ router.post('/locations',async function(req,res){
 
 
                 
-
-                res.send(result);
+                  console.log(finalResult);
+                res.send(finalResult);
     
     })
       .catch(error => console.log('error', error));

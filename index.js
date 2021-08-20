@@ -1,6 +1,8 @@
 const express=require('express');
 const port=8000;
 const app=express();
+const cors=require('cors');
+app.use(cors());
 
 var fetch = require('node-fetch');
 app.use(express.json());
