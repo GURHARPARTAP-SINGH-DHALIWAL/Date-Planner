@@ -11,6 +11,6 @@ app.use(express.urlencoded());
 
 app.use('/',require('./routes'));
 
-app.listen(port,function(){
+app.listen(process.env.PORT||port,function(){
     console.log('Server is Up and Running');
 });
