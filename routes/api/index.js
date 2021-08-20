@@ -29,7 +29,7 @@ router.post('/locations',async function(req,res){
    var lat=parseFloat(req.body.startingLatitude);
    var lon=parseFloat(req.body.startingLongitude);
    console.log(lat,lon);
-      fetch(`https://api.geoapify.com/v2/places?categories=${string}&filter=circle:${lat},${lon},5000&limit=5&apiKey=${key.key}`, requestOptions)
+      fetch(`https://api.geoapify.com/v2/places?categories=${string}&filter=circle:${lat},${lon},10000&limit=10&apiKey=${key.key}`, requestOptions)
       .then(response => response.json())
       .then(
             function(result) {
