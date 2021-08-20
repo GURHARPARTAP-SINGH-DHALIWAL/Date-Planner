@@ -1,27 +1,3 @@
-/* #form{
-    position: relative;
-    left: 35%;
-    top: 15%;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    border: solid 2px black;
-    padding: 10px;
-
-}
-body{
-    background-image: url("C:/Users/Gurharpartap Singh/Downloads/tree.jpg");
-}
-input{
-    background-color: rgb(8, 130, 187);
-    color: black    ;
-    
-}
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    /* color: rgb(14, 14, 14);
-    opacity: 1; /* Firefox */
-  /* } */ 
 #locations{
     display: flex;
     flex-wrap: wrap;
