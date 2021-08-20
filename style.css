@@ -120,7 +120,20 @@ input{
   box-sizing:border-box;
   padding:0 18px; 
 }
-
+select{
+    border:none;
+    outline:none;
+    display:inline-block;
+    height:34px;
+    vertical-align:middle;
+    position:relative;
+    bottom:14px;
+    right:9px;
+    border-radius:22px;
+    width:220px;
+    box-sizing:border-box;
+    padding:0 18px; 
+  }
 input[type="submit"]{ 
   background:rgba(197,62,126,.33) ! important;
   color:#fff;
